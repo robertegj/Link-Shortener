@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../assets/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="../assets/bootstrap.min.css" crossorigin="anonymous">
 		<title>link shrink</title>
 		<style>
 		.list-group-item:hover {
@@ -13,7 +13,7 @@
 	</head>
 	<body>
 		<div class="container" style="margin-top:15vh;">
-			<h1>Welcome to the <a href="https://sc2.xyz/list/"><span class="text-primary"> link shrink/shortener</span></a></i></h1>
+			<h1>Welcome to the <span class="text-primary"> link shrink/shortener</span></i></h1>
 			<br>
 			<form class="form-group" action="index.php" method="POST">
 				<label for="url">Enter the URL you wish to shorten:</label>
@@ -21,6 +21,7 @@
 				<br>
 				<input type="submit" class="btn btn-primary">
 				<?php
+				$host = $_SERVER['HTTP_HOST'] . "/";
 				ini_set('display_errors', 1);
 				ini_set('display_startup_errors', 1);
 				error_reporting(E_ALL);
@@ -29,8 +30,8 @@
 					$redir = "<?php header('Location: $url'); ?>";
 					$rand = rand(1,99999);
 					file_put_contents($rand . ".php",$redir);
-					$finURL = "https://sc2.xyz/l/" . $rand . ".php";
-					echo "Shortened URL: " . $url . " can be found at: <a href='$finURL'> $finURL </a>";
+					$finURL = "https://" . $host . $rand . ".php";
+					echo "Shortened URL: " . $finURL . " can be found at: <a href='$finURL'> $finURL </a>";
 				}
 				?>
 			</form>
