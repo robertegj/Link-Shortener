@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../assets/bootstrap.min.css" crossorigin="anonymous">
+		<link rel="stylesheet" href="assets/bootstrap.min.css" crossorigin="anonymous">
 		<title>link shrink</title>
 		<style>
 		.list-group-item:hover {
